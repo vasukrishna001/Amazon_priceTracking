@@ -33,6 +33,16 @@ The script is set up to run automatically every day using **Task Scheduler** (Wi
   - Set up your Gmail account and generate an app password (for security reasons, this is recommended over using your main Gmail password).
   - Store the Gmail app password as an environment variable (`GMAIL_APP_PASSWORD`).
 
+## Important Notice for Web Scraping
+
+Please note that the web scraper is designed to scrape product data from **individual product pages** on Amazon. If you provide a URL that points to a **search results page** or a page displaying **multiple products**, the scraper may not work as intended.
+
+For the scraper to function correctly:
+- **Ensure that the URL points directly to a single product page**. The URL should contain the unique product identifier (e.g., `dp/B08N5WRWNW` for a specific product).
+- **Multiple products on a page**: If a URL contains multiple products (as seen in category pages or search results), the scraper will not be able to extract the necessary details (like title and price) for each product.
+
+For best results, always use **direct links to individual product pages** for scraping ( example image is uploaded in the name of sampleUrl_image)
+
 ---
 
 ## How It Works
@@ -75,5 +85,4 @@ To automate the script to run daily, you can use **Task Scheduler** (on Windows)
 1. Open your terminal.
 2. Type `crontab -e` to open the crontab editor.
 3. Add a line to schedule the script to run daily, e.g.:
-   ```bash
-   0 9 * * * /usr/bin/python3 /path/to/your/script.py
+   
